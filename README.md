@@ -5,7 +5,7 @@ Pytorch Implementation of TBD.
 * Our model is
 
 ## Model architecture ##
-<center><img src="./fig/model_arch.PNG"> </center>
+<center><img src="./fig/model_arch.png"> </center>
 
 ### Step 1. Proxy Pretrain
 * * *
@@ -115,5 +115,7 @@ python3 5-eval.py --metadata ./metadata/kr_entire_demographics.csv
                   --score-path ./local_score/local_score.csv
                   --train-ratio 0.8 --train-count 100
 ```
+## Result ##
+<center><img src="./fig/model_result.png"> </center>
 
 
