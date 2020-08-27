@@ -13,7 +13,7 @@ def arg_parser():
     parser = argparse.ArgumentParser(description='Proxy Pretrain Parser')
     parser.add_argument('--mode', default="ordinal", type=str, help='proxy pretrain mode (ordinal or nightlight)')
     parser.add_argument('--root-dir', default="./data/proxy/", type=str, help='proxy image path')
-    parser.add_argument('--train-meta', default="./metadata/proxy_metadata_test.csv", type=str, help='train metadata path')
+    parser.add_argument('--train-meta', default="./metadata/proxy_metadata_train.csv", type=str, help='train metadata path')
     parser.add_argument('--test-meta', default="./metadata/proxy_metadata_test.csv", type=str, help='train metadata path')
     parser.add_argument('--thr1', '--threshold1', default=0, type=int, help='rural score threshold')
     parser.add_argument('--thr2', '--threshold2', default=10, type=int, help='city score threshold')
