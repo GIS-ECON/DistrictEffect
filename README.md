@@ -1,13 +1,15 @@
-# TBD
+# Learning economy from multi-level geographic information
 
-Pytorch Implementation of TBD.
-* Our model is
-* Our model is
+Pytorch Implementation of Learning economy from multi-level geographic information
+* Our model is a novel learning model that utilizes multiple levels of geographic information to predict economic indicators.
+* Step 1. our model measures the hyperlocal economy by inferring the relative degree of individual grid image’s economic development via ordinal regression.
+* Step 2. the interconnected relationship among small grid areas within the same district is summarized as district features.
+* Step 3. our model finally estimates economic indicators of districts by jointly utilizing the hyperlocal predictions and district features.
 
 ## Model architecture ##
 <center><img src="./fig/model_arch.png"> </center>
 
-### Step 1. Proxy Pretrain
+### Step 1-A. Proxy Pretrain
 * * *
 ##### 1-proxy_pretrain.py
 Training model with softlabel proxy (Ordinal Regression) or nightlight proxy (Pearson Maximization).
@@ -33,7 +35,7 @@ python3 1-proxy_pretrain.py --mode nightlight --root-dir ./data/unified/
                             --train-meta ./metadata/korea_nightlight_proxy.csv
                             --batch-size 256 --epochs 20 
 ```
-### Step 2. Data Pruning
+### Step 1-B. Data Pruning
 * * *
 ##### 2-data_pruning.py
 Pruning uninhabited images using Step 1 ordinal regression model
@@ -46,7 +48,7 @@ usage: 2-data_pruning.py [-h] [--model MODEL] [--thr1 THR1] [--thr2 THR2]
 python3 2-data_pruning.py --model ./model/proxy_ordinal.ckpt --path ./data/pruned
 ```
 
-### Step 3. Fine-Tuning
+### Step 2-A. Fine-Tuning
 * * *
 ##### 3-fine_tuing.py
 Fine-tuning Step 1 models using deepcluster algorithm
@@ -76,7 +78,7 @@ python3 3-fine_tuing.py --mode nightlight --m-path ./model/proxy_nl.ckpt
                         --proxy-root ./data/unified/ --cluster-root ./data/pruned/
                         --proxy-batch 256 --cluster-batch 256 --c-num 30
 ```
-### Step 4. Feature Extraction
+### Step 2-B. Feature Extraction
 * * *
 ##### 4-extract_feature.py
 Extractiong local level score or district embedding feature
@@ -98,7 +100,7 @@ python3 4-extract_feature.py --mode embedding -m-path ./model/FEATURE_EXTRACTION
                              --metadata ./metadata/kr_entire_demographics.csv
                              --root ./data/pruned/
 ```                             
-### Step 5. Economic Indicator Prediction
+### Step 3. Economic Indicator Prediction
 * * *
 ##### 4-extract_feature.py
 Combining local-level score and district-level factor to predict economic indicator 
