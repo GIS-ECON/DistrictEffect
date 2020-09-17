@@ -7,7 +7,7 @@ Pytorch Implementation of Learning economy from multi-level geographic informati
 * Step 3. our model finally estimates economic indicators of districts by jointly utilizing the hyperlocal predictions and district features.
 
 ## Model architecture ##
-<center><img src="./fig/aaai_model_v4.pdf"> </center>
+<center><img src="./fig/aaai_model_v4.jpg"> </center>
 
 ### Step 1-A. Proxy Pretrain
 * * *
