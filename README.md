@@ -118,6 +118,6 @@ python3 5-eval.py --metadata ./metadata/kr_entire_demographics.csv
                   --train-ratio 0.8 --train-count 100
 ```
 ## Result ##
-<center><img src="./fig/model_result.png"> </center>
+<center><img src="./fig/result.png"> </center>
 
 
